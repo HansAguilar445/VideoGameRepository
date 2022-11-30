@@ -249,6 +249,37 @@ namespace VideoGameRepository.Classes
                 ageRating: 7
             );
 
+          VideoGame ARKSurvivalEvolved2 = new(
+                title: "ARK: Survival Evolved 2",
+                category: "Survival",
+                year: 2022,
+                playerCount: 100,
+                price: 70f,
+                studio: WildcardStudio,
+                consoles: new() { pc },
+                publisher: WildcardPublishing,
+                ageRating: 13
+                );
+
+             VideoGame GoatSimulator = new(
+                title: "GoatSimulator",
+                category: "Simulation",
+                year: 2014,
+                playerCount: 4,
+                price: 10f,
+                studio: coffeeStainStudio,
+                consoles: new() { pc },
+                publisher: coffeeStainPublishing,
+                ageRating: 12
+
+                );
+
+
+
+
+            VideoGames.Add(ARKSurvivalEvolved2);
+            VideoGames.Add(GoatSimulator);
+
             Studio FromSoftware = new("FromSoftware", 100_000);
             Studios.Add(FromSoftware);
 
