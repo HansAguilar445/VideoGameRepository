@@ -31,7 +31,7 @@ namespace VideoGameRepository.Classes
             Studios.Add(coffeeStainStudio);
             Studios.Add(monolithSoft);
             Studios.Add(halLabs);
-            
+
             Publisher coffeeStainPublishing = new("Coffee Stain Publishing", 1_000_000);
 
             Publisher maddyMakesGamesPublishing = new("Maddy Makes Games", 36_000_000);
@@ -101,7 +101,7 @@ namespace VideoGameRepository.Classes
                 ageRating: 13
                 );
             VideoGames.Add(ARKSurvivalEvolved);
-
+            WildcardStudio.AddGame(ARKSurvivalEvolved);
             WildcardPublishing.AddStudio(WildcardStudio);
             pc.AddGame(ARKSurvivalEvolved);
 
@@ -117,7 +117,7 @@ namespace VideoGameRepository.Classes
                 ageRating: 13
                 );
             VideoGames.Add(SpaceEngineers);
-
+            WildcardStudio.AddGame(SpaceEngineers);
             coffeeStainStudio.AddGame(SpaceEngineers);
             pc.AddGame(SpaceEngineers);
 
@@ -249,36 +249,35 @@ namespace VideoGameRepository.Classes
                 ageRating: 7
             );
 
-          VideoGame ARKSurvivalEvolved2 = new(
-                title: "ARK: Survival Evolved 2",
-                category: "Survival",
-                year: 2022,
-                playerCount: 100,
-                price: 70f,
-                studio: WildcardStudio,
-                consoles: new() { pc },
-                publisher: WildcardPublishing,
-                ageRating: 13
-                );
+            VideoGame ARKSurvivalEvolved2 = new(
+                  title: "ARK: Survival Evolved 2",
+                  category: "Survival",
+                  year: 2022,
+                  playerCount: 100,
+                  price: 70f,
+                  studio: WildcardStudio,
+                  consoles: new() { pc },
+                  publisher: WildcardPublishing,
+                  ageRating: 13
+                  );
 
-             VideoGame GoatSimulator = new(
-                title: "GoatSimulator",
-                category: "Simulation",
-                year: 2014,
-                playerCount: 4,
-                price: 10f,
-                studio: coffeeStainStudio,
-                consoles: new() { pc },
-                publisher: coffeeStainPublishing,
-                ageRating: 12
-
-                );
-
-
-
+            VideoGame GoatSimulator = new(
+               title: "GoatSimulator",
+               category: "Simulation",
+               year: 2014,
+               playerCount: 4,
+               price: 10f,
+               studio: coffeeStainStudio,
+               consoles: new() { pc },
+               publisher: coffeeStainPublishing,
+               ageRating: 12
+               );
 
             VideoGames.Add(ARKSurvivalEvolved2);
+            WildcardStudio.AddGame(ARKSurvivalEvolved2);
+
             VideoGames.Add(GoatSimulator);
+            coffeeStainStudio.AddGame(GoatSimulator);
 
             Studio FromSoftware = new("FromSoftware", 100_000);
             Studios.Add(FromSoftware);
