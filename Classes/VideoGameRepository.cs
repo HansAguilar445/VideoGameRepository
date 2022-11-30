@@ -56,6 +56,9 @@ namespace VideoGameRepository.Classes
             Publisher KeenSoftwareHousePublishing = new("Keen Software House Publishing", 500_000);
             Publishers.Add(KeenSoftwareHousePublishing);
 
+            Publisher NamcoBandai = new("Namco Bandai", 571_000_000);
+            Publishers.Add(NamcoBandai);
+
             VideoGameConsole pc = new("PC", 1500, 20, true);
             VideoGameConsole wiiU = new("Wii U", 400, 8, true);
             VideoGameConsole nSwitch = new("Switch", 400, 8, true);
@@ -107,7 +110,7 @@ namespace VideoGameRepository.Classes
                 ageRating: 13
                 );
             VideoGames.Add(ARKSurvivalEvolved);
-
+            WildcardStudio.AddGame(ARKSurvivalEvolved);
             WildcardPublishing.AddStudio(WildcardStudio);
             pc.AddGame(ARKSurvivalEvolved);
 
@@ -123,7 +126,7 @@ namespace VideoGameRepository.Classes
                 ageRating: 13
                 );
             VideoGames.Add(SpaceEngineers);
-
+            WildcardStudio.AddGame(SpaceEngineers);
             coffeeStainStudio.AddGame(SpaceEngineers);
             pc.AddGame(SpaceEngineers);
 
@@ -140,7 +143,7 @@ namespace VideoGameRepository.Classes
                 playerCount: 4,
                 price: 11f,
                 studio: hopooGames,
-                consoles: new() { pc },
+                consoles: new() { pc, nSwitch },
                 publisher: gearbox,
                 ageRating: 13
                 );
@@ -149,6 +152,7 @@ namespace VideoGameRepository.Classes
             hopooGames.AddGame(riskOfRain);
             gearbox.AddStudio(hopooGames);
             pc.AddGame(riskOfRain);
+            nSwitch.AddGame(riskOfRain);
 
             VideoGame riskOfRain2 = new(
                 title: "Risk of Rain 2",
@@ -157,7 +161,7 @@ namespace VideoGameRepository.Classes
                 playerCount: 4,
                 price: 29f,
                 studio: hopooGames,
-                consoles: new() { pc },
+                consoles: new() { pc, nSwitch },
                 publisher: gearbox,
                 ageRating: 13
                 );
@@ -165,6 +169,7 @@ namespace VideoGameRepository.Classes
 
             hopooGames.AddGame(riskOfRain2);
             pc.AddGame(riskOfRain2);
+            nSwitch.AddGame(riskOfRain2);
 
             Studio ninjaKiwi = new("Ninja Kiwi", 3_000_000);
             Studios.Add(ninjaKiwi);
@@ -253,6 +258,69 @@ namespace VideoGameRepository.Classes
                 ageRating: 7
             );
 
+            VideoGame ARKSurvivalEvolved2 = new(
+                  title: "ARK: Survival Evolved 2",
+                  category: "Survival",
+                  year: 2022,
+                  playerCount: 100,
+                  price: 70f,
+                  studio: WildcardStudio,
+                  consoles: new() { pc },
+                  publisher: WildcardPublishing,
+                  ageRating: 13
+                  );
+
+            VideoGame GoatSimulator = new(
+               title: "GoatSimulator",
+               category: "Simulation",
+               year: 2014,
+               playerCount: 4,
+               price: 10f,
+               studio: coffeeStainStudio,
+               consoles: new() { pc },
+               publisher: coffeeStainPublishing,
+               ageRating: 12
+               );
+
+            VideoGames.Add(ARKSurvivalEvolved2);
+            WildcardStudio.AddGame(ARKSurvivalEvolved2);
+
+            VideoGames.Add(GoatSimulator);
+            coffeeStainStudio.AddGame(GoatSimulator);
+
+            Studio FromSoftware = new("FromSoftware", 100_000);
+            Studios.Add(FromSoftware);
+
+            VideoGame EldenRing = new(
+                title: "elden ring",
+                category: "Action RPG",
+                year: 2022,
+                playerCount: 1,
+                price: 60f,
+                studio: FromSoftware,
+                consoles: new() { pc },
+                publisher: NamcoBandai,
+                ageRating: 17
+                );
+            Studio danielMullinsGames = new("Daniel Mullins Games", 600_000);
+            Studios.Add(danielMullinsGames);
+
+            Publisher devolverDigital = new("Devolver Digital", 8_000_000);
+            Publishers.Add(devolverDigital);
+
+            VideoGame inscryption = new(
+                title: "Inscryption",
+                category: "Metafiction",
+                year: 2021,
+                playerCount: 1,
+                price: 22.79f,
+                studio: danielMullinsGames,
+                consoles: new() { pc, nSwitch },
+                publisher: devolverDigital,
+                ageRating: 12
+                );
+            VideoGames.Add(inscryption);
+
             VideoGame smtV = new(
                 title: "Shin Megami Tensei V",
                 category: "JRPG",
@@ -264,6 +332,11 @@ namespace VideoGameRepository.Classes
                 publisher: sega,
                 ageRating: 16
                 );
+
+            danielMullinsGames.AddGame(inscryption);
+            devolverDigital.AddStudio(danielMullinsGames);
+            pc.AddGame(inscryption);
+            nSwitch.AddGame(inscryption);
 
             VideoGames.Add(xenoblade);
             VideoGames.Add(xenoblade2);
@@ -291,6 +364,27 @@ namespace VideoGameRepository.Classes
 
             pc.AddGame(satisfactory);
             pc.AddGame(celeste);
+
+            Studio epicGames = new("Epic Games", 10_000_000);
+            Studios.Add(epicGames);
+            VideoGame fortnite = new(
+                title: "Fortnite",
+                category: "Battle Royale",
+                year: 1902,
+                playerCount: 100,
+                price: 180f,
+                studio: epicGames,
+                consoles: new() { wiiU },
+                publisher: nintendo,
+                ageRating: 90
+            );
+            VideoGames.Add(fortnite);
+            epicGames.AddGame(fortnite);
+            wiiU.AddGame(fortnite);
+
+            VideoGames.Add(EldenRing);
+            FromSoftware.AddGame(EldenRing);
+            pc.AddGame(EldenRing);
         }
     }
 }
