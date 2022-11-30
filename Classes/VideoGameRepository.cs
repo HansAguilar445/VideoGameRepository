@@ -27,10 +27,12 @@ namespace VideoGameRepository.Classes
             Studios.Add(maddyMakesGamesStudio);
             Studio monolithSoft = new("Monolith Soft", 1_000_000);
             Studio halLabs = new("HAL Laboratories", 1_000_000);
+            Studio atlus = new("Atlus", 1_000_000);
 
             Studios.Add(coffeeStainStudio);
             Studios.Add(monolithSoft);
             Studios.Add(halLabs);
+            Studios.Add(atlus);
             
             Publisher coffeeStainPublishing = new("Coffee Stain Publishing", 1_000_000);
 
@@ -38,8 +40,15 @@ namespace VideoGameRepository.Classes
             Publishers.Add(coffeeStainPublishing);
             Publishers.Add(maddyMakesGamesPublishing);
 
-            Publisher nintendo = new("Nintendo", 100_000_000);
+            Publisher nintendo = new("Nintendo", 15_000_000_000);
+            Publisher sega = new("Sega", 2_730_000_000);
             Publishers.Add(nintendo);
+            Publishers.Add(sega);
+
+            nintendo.AddStudio(monolithSoft);
+            nintendo.AddStudio(halLabs);
+
+            sega.AddStudio(atlus);
 
             Studio KeenSoftwareHouseStudio = new("Keen Software House Studios", 500_000);
             Studios.Add(KeenSoftwareHouseStudio);
@@ -244,11 +253,24 @@ namespace VideoGameRepository.Classes
                 ageRating: 7
             );
 
+            VideoGame smtV = new(
+                title: "Shin Megami Tensei V",
+                category: "JRPG",
+                year: 2021,
+                playerCount: 1,
+                price: 80f,
+                studio: atlus,
+                consoles: new() { nSwitch },
+                publisher: sega,
+                ageRating: 16
+                );
+
             VideoGames.Add(xenoblade);
             VideoGames.Add(xenoblade2);
             VideoGames.Add(xenoblade3);
             VideoGames.Add(xenobladeX);
             VideoGames.Add(forgottenLand);
+            VideoGames.Add(smtV);
 
             monolithSoft.AddGame(xenoblade);
             monolithSoft.AddGame(xenoblade2);
@@ -257,10 +279,13 @@ namespace VideoGameRepository.Classes
 
             halLabs.AddGame(forgottenLand);
 
+            atlus.AddGame(smtV);
+
             nSwitch.AddGame(xenoblade);
             nSwitch.AddGame(xenoblade2);
             nSwitch.AddGame(xenoblade3);
             nSwitch.AddGame(forgottenLand);
+            nSwitch.AddGame(smtV);
 
             wiiU.AddGame(xenobladeX);
 
