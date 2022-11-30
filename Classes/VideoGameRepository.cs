@@ -41,8 +41,6 @@ namespace VideoGameRepository.Classes
             Publisher nintendo = new("Nintendo", 100_000_000);
             Publishers.Add(nintendo);
 
-
-
             Studio KeenSoftwareHouseStudio = new("Keen Software House Studios", 500_000);
             Studios.Add(KeenSoftwareHouseStudio);
 
@@ -57,9 +55,6 @@ namespace VideoGameRepository.Classes
             Consoles.Add(wiiU);
             Consoles.Add(nSwitch);
 
-
-
-
             VideoGame satisfactory = new(
                 title: "Satisfactory",
                 category: "Simulation",
@@ -73,7 +68,7 @@ namespace VideoGameRepository.Classes
 
                 );
 
-            VideoGames celeste = new(
+            VideoGame celeste = new(
                 title: "Celeste",
                 category: "Platformer",
                 year: 2018,
@@ -87,7 +82,6 @@ namespace VideoGameRepository.Classes
 
             VideoGames.Add(satisfactory);
             VideoGames.Add(celeste);
-
 
             coffeeStainStudio.AddGame(satisfactory);
             coffeeStainPublishing.AddStudio(coffeeStainStudio);
@@ -105,13 +99,8 @@ namespace VideoGameRepository.Classes
                 );
             VideoGames.Add(ARKSurvivalEvolved);
 
-            WildcardPublishing.AddGame(ARKSurvivalEvolved);
             WildcardPublishing.AddStudio(WildcardStudio);
             pc.AddGame(ARKSurvivalEvolved);
-
-            offeeStainStudio.AddGame(SpaceEngineers);
-            coffeeStainPublishing.AddStudio(KeenSoftwareHousePublishing);
-            pc.AddGame(SpaceEngineers);
 
             VideoGame SpaceEngineers = new(
                 title: "Space Engineers",
@@ -126,9 +115,7 @@ namespace VideoGameRepository.Classes
                 );
             VideoGames.Add(SpaceEngineers);
 
-
-            KeenSoftwareHousePublishing.AddGame(SpaceEngineers);
-            KeenSoftwareHousePublishing.AddStudio(KeenSoftwareHousePublishing);
+            coffeeStainStudio.AddGame(SpaceEngineers);
             pc.AddGame(SpaceEngineers);
 
             Studio hopooGames = new("Hopoo Games", 5_000_000);
