@@ -15,6 +15,12 @@ namespace VideoGameRepository.Classes
 
         public VideoGameRepository()
         {
+            Studio WildcardStudio = new("Wildcard Studio", 4_000_000);
+            Studios.Add(WildcardStudio);
+
+            Publisher WildcardPublishing = new("Wildcard Publishing", 4_000_000);
+            Publishers.Add(WildcardPublishing);
+
             Studio coffeeStainStudio = new("Coffee Stain Studios", 1_000_000);
             Studio maddyMakesGamesStudio = new("Maddy Makes Games", 3_000_000);
 
@@ -35,6 +41,14 @@ namespace VideoGameRepository.Classes
             Publisher nintendo = new("Nintendo", 100_000_000);
             Publishers.Add(nintendo);
 
+
+
+            Studio KeenSoftwareHouseStudio = new("Keen Software House Studios", 500_000);
+            Studios.Add(KeenSoftwareHouseStudio);
+
+            Publisher KeenSoftwareHousePublishing = new("Keen Software House Publishing", 500_000);
+            Publishers.Add(KeenSoftwareHousePublishing);
+
             VideoGameConsole pc = new("PC", 1500, 20, true);
             VideoGameConsole wiiU = new("Wii U", 400, 8, true);
             VideoGameConsole nSwitch = new("Switch", 400, 8, true);
@@ -42,6 +56,9 @@ namespace VideoGameRepository.Classes
             Consoles.Add(pc);
             Consoles.Add(wiiU);
             Consoles.Add(nSwitch);
+
+
+
 
             VideoGame satisfactory = new(
                 title: "Satisfactory",
@@ -71,8 +88,48 @@ namespace VideoGameRepository.Classes
             VideoGames.Add(satisfactory);
             VideoGames.Add(celeste);
 
+
             coffeeStainStudio.AddGame(satisfactory);
             coffeeStainPublishing.AddStudio(coffeeStainStudio);
+
+            VideoGame ARKSurvivalEvolved = new(
+                title: "ARK: Survival Evolved",
+                category: "Survival",
+                year: 2017,
+                playerCount: 100,
+                price: 20f,
+                studio: WildcardStudio,
+                consoles: new() { pc },
+                publisher: WildcardPublishing,
+                ageRating: 13
+                );
+            VideoGames.Add(ARKSurvivalEvolved);
+
+            WildcardPublishing.AddGame(ARKSurvivalEvolved);
+            WildcardPublishing.AddStudio(WildcardStudio);
+            pc.AddGame(ARKSurvivalEvolved);
+
+            offeeStainStudio.AddGame(SpaceEngineers);
+            coffeeStainPublishing.AddStudio(KeenSoftwareHousePublishing);
+            pc.AddGame(SpaceEngineers);
+
+            VideoGame SpaceEngineers = new(
+                title: "Space Engineers",
+                category: "Survival",
+                year: 2019,
+                playerCount: 20,
+                price: 22f,
+                studio: WildcardStudio,
+                consoles: new() { pc },
+                publisher: WildcardPublishing,
+                ageRating: 13
+                );
+            VideoGames.Add(SpaceEngineers);
+
+
+            KeenSoftwareHousePublishing.AddGame(SpaceEngineers);
+            KeenSoftwareHousePublishing.AddStudio(KeenSoftwareHousePublishing);
+            pc.AddGame(SpaceEngineers);
 
             Studio hopooGames = new("Hopoo Games", 5_000_000);
             Studios.Add(hopooGames);
@@ -138,6 +195,7 @@ namespace VideoGameRepository.Classes
 
             maddyMakesGamesStudio.AddGame(celeste);
             maddyMakesGamesPublishing.AddStudio(maddyMakesGamesStudio);
+
 
             VideoGame xenoblade = new(
                 title: "Xenoblade Chronicles: Definitive Edition",
