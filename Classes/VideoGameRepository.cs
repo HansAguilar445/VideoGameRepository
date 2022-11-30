@@ -131,7 +131,7 @@ namespace VideoGameRepository.Classes
                 playerCount: 4,
                 price: 11f,
                 studio: hopooGames,
-                consoles: new() { pc },
+                consoles: new() { pc, nSwitch },
                 publisher: gearbox,
                 ageRating: 13
                 );
@@ -140,6 +140,7 @@ namespace VideoGameRepository.Classes
             hopooGames.AddGame(riskOfRain);
             gearbox.AddStudio(hopooGames);
             pc.AddGame(riskOfRain);
+            nSwitch.AddGame(riskOfRain);
 
             VideoGame riskOfRain2 = new(
                 title: "Risk of Rain 2",
@@ -148,7 +149,7 @@ namespace VideoGameRepository.Classes
                 playerCount: 4,
                 price: 29f,
                 studio: hopooGames,
-                consoles: new() { pc },
+                consoles: new() { pc, nSwitch },
                 publisher: gearbox,
                 ageRating: 13
                 );
@@ -156,6 +157,7 @@ namespace VideoGameRepository.Classes
 
             hopooGames.AddGame(riskOfRain2);
             pc.AddGame(riskOfRain2);
+            nSwitch.AddGame(riskOfRain2);
 
             Studio ninjaKiwi = new("Ninja Kiwi", 3_000_000);
             Studios.Add(ninjaKiwi);
@@ -243,6 +245,30 @@ namespace VideoGameRepository.Classes
                 publisher: nintendo,
                 ageRating: 7
             );
+
+            Studio danielMullinsGames = new("Daniel Mullins Games", 600_000);
+            Studios.Add(danielMullinsGames);
+
+            Publisher devolverDigital = new("Devolver Digital", 8_000_000);
+            Publishers.Add(devolverDigital);
+
+            VideoGame inscryption = new(
+                title: "Inscryption",
+                category: "Metafiction",
+                year: 2021,
+                playerCount: 1,
+                price: 22.79f,
+                studio: danielMullinsGames,
+                consoles: new() { pc, nSwitch },
+                publisher: devolverDigital,
+                ageRating: 12
+                );
+            VideoGames.Add(inscryption);
+
+            danielMullinsGames.AddGame(inscryption);
+            devolverDigital.AddStudio(danielMullinsGames);
+            pc.AddGame(inscryption);
+            nSwitch.AddGame(inscryption);
 
             VideoGames.Add(xenoblade);
             VideoGames.Add(xenoblade2);
