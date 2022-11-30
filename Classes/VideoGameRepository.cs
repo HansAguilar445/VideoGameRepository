@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +16,9 @@ namespace VideoGameRepository.Classes
         public VideoGameRepository()
         {
             Studio coffeeStainStudio = new("Coffee Stain Studios", 1_000_000);
+            Studio maddyMakesGamesStudio = new("Maddy Makes Games", 3_000_000);
+
+            Studios.Add(maddyMakesGamesStudio);
             Studio monolithSoft = new("Monolith Soft", 1_000_000);
             Studio halLabs = new("HAL Laboratories", 1_000_000);
 
@@ -24,9 +27,12 @@ namespace VideoGameRepository.Classes
             Studios.Add(halLabs);
             
             Publisher coffeeStainPublishing = new("Coffee Stain Publishing", 1_000_000);
-            Publisher nintendo = new("Nintendo", 100_000_000);
 
+            Publisher maddyMakesGamesPublishing = new("Maddy Makes Games", 36_000_000);
             Publishers.Add(coffeeStainPublishing);
+            Publishers.Add(maddyMakesGamesPublishing);
+
+            Publisher nintendo = new("Nintendo", 100_000_000);
             Publishers.Add(nintendo);
 
             VideoGameConsole pc = new("PC", 1500, 20, true);
@@ -47,12 +53,30 @@ namespace VideoGameRepository.Classes
                 consoles: new() { pc },
                 publisher: coffeeStainPublishing,
                 ageRating: 10
-            );
+
+                );
+
+            VideoGames celeste = new(
+                title: "Celeste",
+                category: "Platformer",
+                year: 2018,
+                playerCount: 1,
+                price: 20f,
+                studio: maddyMakesGamesStudio,
+                consoles: new() { pc },
+                publisher: maddyMakesGamesPublishing,
+                ageRating: 10
+                );
+
             VideoGames.Add(satisfactory);
+            VideoGames.Add(celeste);
 
             coffeeStainStudio.AddGame(satisfactory);
             coffeeStainPublishing.AddStudio(coffeeStainStudio);
-            pc.AddGame(satisfactory);
+
+
+            maddyMakesGamesStudio.AddGame(celeste);
+            maddyMakesGamesPublishing.AddStudio(maddyMakesGamesStudio);
 
             VideoGame xenoblade = new(
                 title: "Xenoblade Chronicles: Definitive Edition",
@@ -134,6 +158,8 @@ namespace VideoGameRepository.Classes
 
             wiiU.AddGame(xenobladeX);
 
+            pc.AddGame(satisfactory);
+            pc.AddGame(celeste);
         }
     }
 }
