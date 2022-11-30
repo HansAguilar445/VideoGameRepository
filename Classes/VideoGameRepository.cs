@@ -47,6 +47,9 @@ namespace VideoGameRepository.Classes
             Publisher KeenSoftwareHousePublishing = new("Keen Software House Publishing", 500_000);
             Publishers.Add(KeenSoftwareHousePublishing);
 
+            Publisher NamcoBandai = new("Namco Bandai", 571_000_000);
+            Publishers.Add(NamcoBandai);
+
             VideoGameConsole pc = new("PC", 1500, 20, true);
             VideoGameConsole wiiU = new("Wii U", 400, 8, true);
             VideoGameConsole nSwitch = new("Switch", 400, 8, true);
@@ -246,6 +249,20 @@ namespace VideoGameRepository.Classes
                 ageRating: 7
             );
 
+            Studio FromSoftware = new("FromSoftware", 100_000);
+            Studios.Add(FromSoftware);
+
+            VideoGame EldenRing = new(
+                title: "elden ring",
+                category: "Action RPG",
+                year: 2022,
+                playerCount: 1,
+                price: 60f,
+                studio: FromSoftware,
+                consoles: new() { pc },
+                publisher: NamcoBandai,
+                ageRating: 17
+                );
             Studio danielMullinsGames = new("Daniel Mullins Games", 600_000);
             Studios.Add(danielMullinsGames);
 
@@ -292,6 +309,10 @@ namespace VideoGameRepository.Classes
 
             pc.AddGame(satisfactory);
             pc.AddGame(celeste);
+
+            VideoGames.Add(EldenRing);
+            FromSoftware.AddGame(EldenRing);
+            pc.AddGame(EldenRing);
         }
     }
 }
