@@ -266,6 +266,24 @@ namespace VideoGameRepository.Classes
 
             pc.AddGame(satisfactory);
             pc.AddGame(celeste);
+
+            Studio epicGames = new("Epic Games", 10_000_000);
+            Studios.Add(epicGames);
+            VideoGame fortnite = new(
+                title: "Fortnite",
+                category: "Battle Royale",
+                year: 1902,
+                playerCount: 100,
+                price: 180f,
+                studio: epicGames,
+                consoles: new() { wiiU },
+                publisher: nintendo,
+                ageRating: 90
+            );
+            VideoGames.Add(fortnite);
+            epicGames.AddGame(fortnite);
+            wiiU.AddGame(fortnite);
+
         }
     }
 }
