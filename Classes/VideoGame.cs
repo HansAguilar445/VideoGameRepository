@@ -8,6 +8,8 @@ namespace VideoGameRepository.Classes
 {
     internal class VideoGame
     {
+        private static int _nextId { get; set; } = 1;
+        public int Id { get; } = _nextId++;
         public string Title { get; }
         public string Category { get; }
         public int Year { get; }
@@ -35,6 +37,11 @@ namespace VideoGameRepository.Classes
         public void AddConsole(VideoGameConsole console)
         {
             _consoles.Add(console);
+        }
+
+        public override string ToString()
+        {
+            return Title;
         }
     }
 }
